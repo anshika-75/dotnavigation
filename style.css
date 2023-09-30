@@ -1,0 +1,97 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 110vh;
+  background: #86c3df;
+}
+.main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 60%;
+}
+.main .navigation {
+  position: relative;
+  width: 10vw;
+  height: 10vw;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.main .navigation span {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #0c0b56;
+  transform: translate(calc(250px * var(--x)), calc(250px * var(--y)));
+  transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .navigation.active span {
+  width: 75px;
+  height: 75px;
+  background: #103454;
+  transform: translate(calc(300px * var(--x)), calc(300px * var(--y)));
+}
+
+.main .navigation span ion-icon {
+  transition: 0.5s;
+  font-size: 0em;
+  color: #96dc14;
+}
+.main .navigation.active span ion-icon {
+  font-size: 300px;
+}
+.main .navigation.active span:hover ion-icon {
+  color: #f70909;
+  filter: drop-shadow(0 0 200px #f80404) drop-shadow(0 0 500px #f90505)
+    drop-shadow(0 0 150px #ea0303);
+}
+.close {
+  position: absolute;
+  width:180px;
+  height: 180px;
+  background: #9e1006;
+  transition: 0.5s;
+  transition-delay: 0.4s;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.main .navigation.active ~ .close {
+  width: 50px;
+  height: 50px;
+  pointer-events: initial;
+  transition-delay: 0.8s;
+  /* background: #e92608; */
+  background: calc(#e92608);
+
+}
+.main .navigation ~ .close ion-icon {
+  font-size: 500px;
+  /* scale: 0; */
+  transform: scale(0);
+
+  color: #10131c;
+  transition: 0.5s;
+}
+.main .navigation.active ~ .close ion-icon {
+  scale: 1;
+  transition-delay: 1s;
+}
